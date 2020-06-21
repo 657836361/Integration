@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    druid:
+      name: grandblueDataSource
+      url: jdbc:mysql://172.16.1.203:3306/robot?useUnicode=true&characterEncoding=utf-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useSSL=false&nullCatalogMeansCurrent=true
+      username: robot_prd
+      password: robot_prd
+      initialSize: 5
+      minIdle: 5
+      maxActive: 30
+      poolPreparedStatements: false
+      validationQuery: SELECT 'x'
+      testOnBorrow: false
+      testOnReturn: false
+      testWhileIdle: true
+      timeBetweenEvictionRunsMillis: 30000
+      minEvictableIdleTimeMillis: 600000
+      filters: stat,wall,slf4j
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-password: GuoBiao@2018mysql
+        login-username: druidAdmin
+        reset-enable: true
+        allow:
+      filter:
+        stat:
+          merge-sql: true
+          enabled: true
+          slow-sql-millis: 3000
+        slf4j:
+          statement-executable-sql-log-enable: true
+          statement-log-error-enabled: true
+          enabled: true
+      web-stat-filter:
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+        url-pattern: /*
+        enabled: true
+        profileEnable: true

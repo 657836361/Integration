@@ -1,0 +1,52 @@
+#spring config
+spring:
+  profiles:
+    active: @env@
+  application:
+    name: robot-server
+# ============
+# Server 配置
+# ============
+server:
+  servlet:
+    context-path: /robot
+    session:
+      #缓存时间7天
+      timeout: P7D
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+  tomcat:
+    uri-encoding: UTF-8
+  port: 9210
+
+# ============
+# mybatis-plus 配置
+# ============
+mybatis-plus:
+  writeInLog: false
+  mapper-locations: classpath:/mapping/**/*Mapper.xml
+  global-config:
+    db-config:
+      #刷新mapper 调试神器
+      #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+      id-type: auto
+      #驼峰下划线转换
+      capital-mode: true
+      #逻辑删除配置
+      sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      db-type: mysql
+      field-strategy: not-null
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+
+
+dingTalk:
+  robot:
+    appSecret: tYFjDoe7V1BUdaW9e0kQewA6-FDDJAUUCbAGEVu4sN28V_8OG9EGxw-IN7h1c0vp
+
+
+

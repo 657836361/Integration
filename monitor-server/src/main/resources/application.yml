@@ -1,0 +1,35 @@
+#spring config
+spring:
+  application:
+    name: monitor-server
+  security:
+    user:
+      name: admin
+      password: 123456
+# ============
+# Server 配置
+# ============
+server:
+  servlet:
+    context-path: /monitor
+  port: 8888
+
+# 配置服务器地址，执行远程服务器登录用户(需要建立互信)
+monitorServer:
+  hosts: root@172.21.101.99
+  webhook: https://oapi.dingtalk.com/robot/send?access_token=7187ef5bd050c66a5237356075b9aa301230795799a2378de573b3c28b572e73
+  secret: SEC77858f84a95b5227951366dd9fdb4f6fc1f0831e24b86eac1da081d0dccc4ebd
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+admin:
+  webhook: https://oapi.dingtalk.com/robot/send?access_token=d377a3f656ce8d279508de5d2200522b37c1e6979db152157c06d206e95d8a7b
+  secret: SEC887e8f8d9778b0373e0c5f821ac1f73dd07bd4d0fe6ed514fb5ad58a28cabd80
+
