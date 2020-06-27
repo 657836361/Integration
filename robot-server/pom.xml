@@ -20,7 +20,7 @@
 		<springboot-mybaits.version>2.1.0</springboot-mybaits.version>
 		<swagger2.version>2.9.2</swagger2.version>
 		<commons-lang3.version>3.6</commons-lang3.version>
-		<commons-beanutils>1.9.3</commons-beanutils>
+		<commons-beanutils>1.9.4</commons-beanutils>
 		<fastjson.version>1.2.58</fastjson.version>
 		<mybatis.plus.version>3.0.7</mybatis.plus.version>
 		<mysql.connector.version>5.1.41</mysql.connector.version>
